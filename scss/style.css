@@ -1,0 +1,200 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Protest+Revolution&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 400;
+  transition: all 0.2s ease;
+}
+
+nav {
+  height: 3.5rem;
+  background: #000;
+}
+nav .navbar-brand {
+  font-family: "Protest Revolution", sans-serif;
+}
+
+.btn-create-todo,
+.btn-open-modal {
+  background: #c58dcf;
+  color: #fff;
+  border: none;
+}
+.btn-create-todo:hover, .btn-create-todo:active,
+.btn-open-modal:hover,
+.btn-open-modal:active {
+  background: #9d9bff;
+  color: #fff;
+}
+
+.add-todo-section .modal input,
+.add-todo-section .modal select {
+  border: 1px solid #181818;
+}
+.add-todo-section .modal input:focus,
+.add-todo-section .modal select:focus {
+  box-shadow: none;
+  border: 1px solid #f6ba54;
+  outline: none;
+}
+
+.buttons-container {
+  height: 4.5rem;
+  background: #fff;
+  flex-wrap: nowrap;
+  width: 100%;
+  overflow-x: scroll;
+}
+.buttons-container::-webkit-scrollbar {
+  display: none;
+}
+.buttons-container button {
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  background: #fff;
+  border: 1px solid #181818;
+  color: #181818;
+}
+.buttons-container button.btn-active {
+  background: #181818;
+  color: #fff;
+}
+.buttons-container button.btn-active span {
+  color: #181818;
+}
+.buttons-container button.btn-all span {
+  background: #dddddc;
+}
+.buttons-container button.btn-complete span {
+  background: #dddddc;
+}
+.buttons-container button.btn-review span {
+  background: #feaeaf;
+}
+.buttons-container button.btn-todo span {
+  background: #9d9bff;
+}
+.buttons-container button.btn-hold span {
+  background: #f6ba54;
+}
+.buttons-container button.btn-clear span {
+  background: #fe5b4f;
+}
+
+.todo-cards-section .all-todo-cards-container .todo-card-container {
+  aspect-ratio: 9/4;
+  max-width: 23rem;
+}
+.todo-cards-section .all-todo-cards-container .todo-card-container .todo-card {
+  border: 1px solid #181818;
+}
+.todo-cards-section .all-todo-cards-container .todo-card-container .todo-card .todo-card-title {
+  font-size: 1rem;
+  display: flex;
+}
+.todo-cards-section .all-todo-cards-container .todo-card-container .todo-card .card-prioriy-status-container > span {
+  font-size: 0.7rem;
+  color: #000000;
+}
+.todo-cards-section .all-todo-cards-container .todo-card-container .todo-card .card-prioriy-status-container > span.card-priority-high {
+  background: #fe5b4f;
+}
+.todo-cards-section .all-todo-cards-container .todo-card-container .todo-card .card-prioriy-status-container > span.card-priority-medium {
+  background: #f6ba54;
+}
+.todo-cards-section .all-todo-cards-container .todo-card-container .todo-card .card-prioriy-status-container > span.card-priority-low {
+  background: #dddddc;
+}
+.todo-cards-section .all-todo-cards-container .todo-card-container .todo-card .card-prioriy-status-container > span.card-status-todo {
+  background: #9d9bff;
+}
+.todo-cards-section .all-todo-cards-container .todo-card-container .todo-card .card-prioriy-status-container > span.card-status-hold {
+  background: #f6ba54;
+}
+.todo-cards-section .all-todo-cards-container .todo-card-container .todo-card .card-prioriy-status-container > span.card-status-review {
+  background: #c58dcf;
+}
+.todo-cards-section .all-todo-cards-container .todo-card-container .todo-card .card-prioriy-status-container > span.card-status-completed {
+  background: #5dd568;
+}
+.todo-cards-section .all-todo-cards-container .todo-card-container .todo-card .card-prioriy-status-container .buttons-container button {
+  font-size: 0.65rem;
+  border: none;
+  color: #fff;
+  height: 70%;
+  aspect-ratio: 1/1;
+}
+.todo-cards-section .all-todo-cards-container .todo-card-container .todo-card .card-prioriy-status-container .buttons-container button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.todo-cards-section .all-todo-cards-container .todo-card-container .todo-card .card-prioriy-status-container .buttons-container button.btn-change-status-todo {
+  background: #9d9bff;
+}
+.todo-cards-section .all-todo-cards-container .todo-card-container .todo-card .card-prioriy-status-container .buttons-container button.btn-change-status-hold {
+  background: #f6ba54;
+}
+.todo-cards-section .all-todo-cards-container .todo-card-container .todo-card .card-prioriy-status-container .buttons-container button.btn-change-status-completed {
+  background: #5dd568;
+}
+.todo-cards-section .all-todo-cards-container .todo-card-container .todo-card .card-prioriy-status-container .buttons-container button.btn-change-status-review {
+  background: #c58dcf;
+}
+.todo-cards-section .all-todo-cards-container .todo-card-container .todo-card .card-date-container {
+  font-size: 0.9rem;
+}
+.todo-cards-section .all-todo-cards-container .todo-card-container .todo-card .card-date-container .calender-date {
+  height: 100%;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+}
+.todo-cards-section .all-todo-cards-container .todo-card-container .todo-card .card-date-container .calender-date .calender-container {
+  height: 100%;
+  aspect-ratio: 1/1;
+  background: url(../images/calendar2.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70%;
+}
+.todo-cards-section .all-todo-cards-container .todo-card-container .todo-card .card-date-container .calender-date .card-date {
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+}
+.todo-cards-section .all-todo-cards-container .todo-card-container .todo-card .card-date-container .card-buttons-container {
+  height: 100%;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+}
+.todo-cards-section .all-todo-cards-container .todo-card-container .todo-card .card-date-container .card-buttons-container button {
+  height: 100%;
+  aspect-ratio: 1/1;
+  background: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 80%;
+}
+.todo-cards-section .all-todo-cards-container .todo-card-container .todo-card .card-date-container .card-buttons-container button.btn-update {
+  background-image: url(../images/update.svg);
+}
+.todo-cards-section .all-todo-cards-container .todo-card-container .todo-card .card-date-container .card-buttons-container button.btn-delete {
+  background-size: 70%;
+  background-image: url(../images/delete.svg);
+}
+@media (min-width: 768px) {
+  .todo-cards-section .all-todo-cards-container .todo-card-container {
+    max-width: unset;
+  }
+  .todo-cards-section .all-todo-cards-container .todo-card-container .todo-card .todo-card-title {
+    font-size: 1.1rem;
+  }
+  .todo-cards-section .all-todo-cards-container .todo-card-container .todo-card .card-prioriy-status-container > span {
+    font-size: 0.8rem;
+  }
+}
+@media (min-width: 992px) {
+  .todo-cards-section .all-todo-cards-container .todo-card-container {
+    aspect-ratio: 2/1;
+  }
+}/*# sourceMappingURL=style.css.map */
