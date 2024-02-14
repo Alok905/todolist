@@ -103,7 +103,11 @@ nav {
         border: 1px solid $black_color;
         .todo-card-title {
           font-size: 1rem;
-          display: flex;
+          white-space: nowrap;
+          overflow: auto;
+          &::-webkit-scrollbar {
+            display: none;
+          }
         }
         .card-prioriy-status-container {
           > span {

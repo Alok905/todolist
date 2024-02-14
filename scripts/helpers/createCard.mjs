@@ -20,7 +20,7 @@ export function createCard(
     class="todo-card h-100 w-100 rounded-3 px-3 py-4 p-md-3 d-flex flex-column justify-content-center gap-3 gap-md-3 gap-lg-4"
   >
     <h3 class="todo-card-title m-0 fw-normal">
-      ${taskTitle}
+            ${taskTitle}
     </h3>
     <div
       class="card-prioriy-status-container d-flex justify-content-between"
