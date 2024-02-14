@@ -5,7 +5,7 @@
   box-sizing: border-box;
   font-family: "Fira Sans", sans-serif;
   font-weight: 400;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 nav {
@@ -56,6 +56,7 @@ nav .navbar-brand {
   background: #fff;
   border: 1px solid #181818;
   color: #181818;
+  transition: all 0.3s ease;
 }
 .buttons-container button.btn-active {
   background: #181818;
@@ -63,6 +64,10 @@ nav .navbar-brand {
 }
 .buttons-container button.btn-active span {
   color: #181818;
+}
+.buttons-container button:hover {
+  border: 1px solid #181818;
+  transform: scale(0.9);
 }
 .buttons-container button.btn-all span {
   background: #dddddc;
@@ -91,6 +96,7 @@ nav .navbar-brand {
   border: 1px solid #181818;
 }
 .todo-cards-section .all-todo-cards-container .todo-card-container .todo-card .todo-card-title {
+  min-height: 1rem;
   font-size: 1rem;
   white-space: nowrap;
   overflow: auto;

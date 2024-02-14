@@ -26,13 +26,20 @@
     </style>
   </head>
   <body>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam minima beatae
-      soluta, quaerat possimus officiis, quae reprehenderit debitis mollitia
-      iste quam dolores eaque nesciunt iure nostrum error fuga placeat officia
-      laborum ratione cupiditate aspernatur! Assumenda nihil dignissimos, porro
-      non nostrum suscipit veritatis fugiat in at repudiandae alias provident
-      ullam sint?
-    </p>
+    <div id="myModal">Hellooooo</div>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="modal"
+      data-bs-target="#myModal"
+      aria-label="Close"
+    ></button>
+    <script>
+      const options = { backdrop: true, focus: true, keyboard: true };
+      const myModal = new bootstrap.Modal(
+        document.getElementById("myModal"),
+        options
+      );
+    </script>
   </body>
 </html>

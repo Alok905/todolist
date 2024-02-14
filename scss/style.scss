@@ -18,7 +18,7 @@ $font_firesans: "Fira Sans", sans-serif;
   box-sizing: border-box;
   font-family: $font_firesans;
   font-weight: 400;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
 }
 nav {
   height: 3.5rem;
@@ -65,12 +65,18 @@ nav {
     background: #fff;
     border: 1px solid $black_color;
     color: $black_color;
+    transition: all 0.3s ease;
     &.btn-active {
       background: $black_color;
       color: #fff;
       span {
         color: $black_color;
       }
+    }
+    &:hover {
+      border: 1px solid $black_color;
+      // background: $some_color;
+      transform: scale(0.9);
     }
     &.btn-all span {
       background: $grey_color;
@@ -102,6 +108,7 @@ nav {
       .todo-card {
         border: 1px solid $black_color;
         .todo-card-title {
+          min-height: 1rem;
           font-size: 1rem;
           white-space: nowrap;
           overflow: auto;
