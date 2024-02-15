@@ -64,7 +64,6 @@ nav {
 
 .add-todo-section {
   .modal {
-
     input,
     select {
       border: 1px solid $black_color;
@@ -96,20 +95,6 @@ nav {
     color: $black_color;
     transition: all 0.2s ease;
 
-    &.btn-active {
-      background: $black_color;
-      color: #fff;
-
-      span {
-        color: $black_color;
-      }
-    }
-
-    &:hover {
-      border: 1px solid $black_color;
-      transform: skew(-10deg);
-    }
-
     &.btn-all span {
       background: $grey_color;
     }
@@ -133,6 +118,22 @@ nav {
     &.btn-clear span {
       background: $red_color;
     }
+
+    &.btn-active {
+      background: $black_color;
+      color: #fff;
+
+      span {
+        color: $black_color;
+      }
+    }
+
+    @media (min-width: 992px) {
+      &:hover {
+        border: 1px solid $black_color;
+        transform: skew(-10deg);
+      }
+    }
   }
 }
 
@@ -141,6 +142,9 @@ nav {
   height: 77vh;
   overflow-x: hidden;
   overflow-y: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   .all-todo-cards-container {
     .todo-card-container {
@@ -162,7 +166,7 @@ nav {
         }
 
         .card-prioriy-status-container {
-          >span {
+          > span {
             font-size: 0.7rem;
             color: #000000;
 
@@ -284,7 +288,7 @@ nav {
           }
 
           .card-prioriy-status-container {
-            >span {
+            > span {
               font-size: 0.8rem;
             }
           }

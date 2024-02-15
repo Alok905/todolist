@@ -72,17 +72,6 @@ nav .nav-link-todos:active {
   color: #181818;
   transition: all 0.2s ease;
 }
-.buttons-container button.btn-active {
-  background: #181818;
-  color: #fff;
-}
-.buttons-container button.btn-active span {
-  color: #181818;
-}
-.buttons-container button:hover {
-  border: 1px solid #181818;
-  transform: skew(-10deg);
-}
 .buttons-container button.btn-all span {
   background: #dddddc;
 }
@@ -101,11 +90,27 @@ nav .nav-link-todos:active {
 .buttons-container button.btn-clear span {
   background: #fe5b4f;
 }
+.buttons-container button.btn-active {
+  background: #181818;
+  color: #fff;
+}
+.buttons-container button.btn-active span {
+  color: #181818;
+}
+@media (min-width: 992px) {
+  .buttons-container button:hover {
+    border: 1px solid #181818;
+    transform: skew(-10deg);
+  }
+}
 
 .todo-cards-section {
   height: 77vh;
   overflow-x: hidden;
   overflow-y: scroll;
+}
+.todo-cards-section::-webkit-scrollbar {
+  display: none;
 }
 .todo-cards-section .all-todo-cards-container .todo-card-container {
   aspect-ratio: 9/4;
