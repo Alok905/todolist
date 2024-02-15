@@ -29,10 +29,7 @@ export function capitalizeString(str) {
 export function renderCards(displayTodos, container) {
   container.innerHTML = "";
   displayTodos.forEach(({ id, title, priority, status, date }) => {
-    container.insertAdjacentHTML(
-      "beforeend",
-      createCard(id, title, priority, status, date)
-    );
+    container.appendChild(createCard(id, title, priority, status, date));
   });
 }
 export function setLocalStorageAndRenderCards(

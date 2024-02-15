@@ -8,12 +8,26 @@
   transition: all 0.3s ease;
 }
 
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
 nav {
-  height: 3.5rem;
+  height: 8vh;
   background: #000;
 }
 nav .navbar-brand {
   font-family: "Protest Revolution", sans-serif;
+}
+nav .nav-link-todos {
+  color: #181818 !important;
+}
+nav .nav-link-todos:hover, nav .nav-link-todos:active {
+  color: #9d9bff !important;
+}
+nav .nav-link-todos:active {
+  transform: scale(1.05);
 }
 
 .btn-create-todo,
@@ -41,7 +55,7 @@ nav .navbar-brand {
 }
 
 .buttons-container {
-  height: 4.5rem;
+  height: 15vh;
   background: #fff;
   flex-wrap: nowrap;
   width: 100%;
@@ -56,7 +70,7 @@ nav .navbar-brand {
   background: #fff;
   border: 1px solid #181818;
   color: #181818;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 .buttons-container button.btn-active {
   background: #181818;
@@ -67,7 +81,7 @@ nav .navbar-brand {
 }
 .buttons-container button:hover {
   border: 1px solid #181818;
-  transform: scale(0.9);
+  transform: skew(-10deg);
 }
 .buttons-container button.btn-all span {
   background: #dddddc;
@@ -88,6 +102,11 @@ nav .navbar-brand {
   background: #fe5b4f;
 }
 
+.todo-cards-section {
+  height: 77vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
 .todo-cards-section .all-todo-cards-container .todo-card-container {
   aspect-ratio: 9/4;
   max-width: 23rem;

@@ -1,18 +1,20 @@
 import {
   getLocalStorage,
   localStorageKeys,
-  priority,
   renderCards,
   setLocalStorageAndRenderCards,
   status,
 } from "./helpers/helper.mjs";
 
+const btnCreateNewTask = document.querySelector(".btn-create-new-task");
 const modalForm = document.querySelector(".modal-form");
 const inputTodoTitle = document.querySelector(".input-todo-title");
 const inputTodoPriority = document.querySelector(".input-select-priority");
 const btnCreateTodo = document.querySelector(".btn-create-todo");
+const buttonStatusContainer = document.querySelector(
+  ".buttons-section > .buttons-container"
+);
 const textCountStatus = document.querySelectorAll(".status-count");
-const btnsQuery = document.querySelectorAll(".btn-query-todo");
 const btnShowAll = document.querySelector(".btn-all");
 const allTodoCardsContainer = document.querySelector(
   ".all-todo-cards-container"
@@ -24,23 +26,6 @@ let prevActiveButton = btnShowAll;
 let updatingTodoId = null;
 
 function updateStatusCount() {
-  // textCountStatus[0].innerText = allTodos.length;
-  // textCountStatus[1].innerText = allTodos.filter(
-  //   (todo) => (todo.status = status.COMPLETED)
-  // ).length;
-  // textCountStatus[5].innerText = allTodos.filter(
-  //   (todo) => (todo.status = status.COMPLETED)
-  // ).length;
-  // textCountStatus[2].innerText = allTodos.filter(
-  //   (todo) => todo.status === status.REVIEW
-  // ).length;
-  // textCountStatus[3].innerText = allTodos.filter(
-  //   (todo) => todo.status === status.TODO
-  // ).length;
-  // textCountStatus[4].innerText = allTodos.filter(
-  //   (todo) => todo.status === status.HOLD
-  // ).length;
-  // --------------------
   textCountStatus[0].innerText = allTodos.reduce((sum, _) => sum + 1, 0);
   textCountStatus[1].innerText = textCountStatus[5].innerText = allTodos.reduce(
     (sum, curr) => (curr.status === status.COMPLETED ? sum + 1 : sum),
@@ -61,7 +46,6 @@ function updateStatusCount() {
 }
 
 function updateDisplayTodosAndSetLocalStorage() {
-  console.log(allTodos);
   if (displayTodos.status === "ALL") {
     displayTodos.todos = allTodos;
   } else {
@@ -83,6 +67,10 @@ window.addEventListener("load", function () {
   allTodoCardsContainer.innerHTML = "";
   renderCards(allTodos, allTodoCardsContainer);
   updateStatusCount();
+});
+
+btnCreateNewTask.addEventListener("click", function (e) {
+  $("#navbarSupportedContent").collapse("hide");
 });
 
 modalForm.addEventListener("submit", function (e) {
@@ -113,12 +101,21 @@ modalForm.addEventListener("submit", function (e) {
       alert("This task is already present.");
       return;
     }
+
+    const currentDateTime = new Date().toString().split(" ").slice(1, 5);
+    const currentDate = currentDateTime.slice(0, 3).join(" ");
+    const currentTime = currentDateTime[3]
+      .toString()
+      .split(":")
+      .slice(0, 2)
+      .join(":");
+
     const newTodo = {
       id: new Date().getTime(),
       title: todoTitle,
       priority: todoPriority,
       status: status.TODO,
-      date: new Date().toString().split(" ").slice(1, 4).join(" "),
+      date: `${currentTime}, ${currentDate}`,
     };
 
     allTodos.unshift(newTodo);
@@ -128,33 +125,30 @@ modalForm.addEventListener("submit", function (e) {
   updateDisplayTodosAndSetLocalStorage();
 });
 
-btnsQuery.forEach((btn) => {
-  btn.addEventListener("click", function () {
-    prevActiveButton.classList.remove("btn-active");
-    btn.classList.add("btn-active");
-    prevActiveButton = btn;
+buttonStatusContainer.addEventListener("click", function (e) {
+  const btn = e.target;
+  if (btn.tagName !== "BUTTON") {
+    return;
+  }
+  prevActiveButton.classList.remove("btn-active");
+  btn.classList.add("btn-active");
+  prevActiveButton = btn;
 
-    if (btn.classList.contains("btn-all")) {
-      displayTodos.status = "ALL";
-      updateDisplayTodosAndSetLocalStorage();
-    } else if (btn.classList.contains("btn-complete")) {
-      displayTodos.status = status.COMPLETED;
-      updateDisplayTodosAndSetLocalStorage();
-    } else if (btn.classList.contains("btn-review")) {
-      displayTodos.status = status.REVIEW;
-      updateDisplayTodosAndSetLocalStorage();
-    } else if (btn.classList.contains("btn-todo")) {
-      displayTodos.status = status.TODO;
-      updateDisplayTodosAndSetLocalStorage();
-    } else if (btn.classList.contains("btn-hold")) {
-      displayTodos.status = status.HOLD;
-      updateDisplayTodosAndSetLocalStorage();
-    } else if (btn.classList.contains("btn-clear")) {
-      displayTodos.status = status.COMPLETED;
-      allTodos = allTodos.filter((todo) => todo.status !== status.COMPLETED);
-      updateDisplayTodosAndSetLocalStorage();
-    }
-  });
+  if (btn.classList.contains("btn-all")) {
+    displayTodos.status = "ALL";
+  } else if (btn.classList.contains("btn-complete")) {
+    displayTodos.status = status.COMPLETED;
+  } else if (btn.classList.contains("btn-review")) {
+    displayTodos.status = status.REVIEW;
+  } else if (btn.classList.contains("btn-todo")) {
+    displayTodos.status = status.TODO;
+  } else if (btn.classList.contains("btn-hold")) {
+    displayTodos.status = status.HOLD;
+  } else if (btn.classList.contains("btn-clear")) {
+    displayTodos.status = status.COMPLETED;
+    allTodos = allTodos.filter((todo) => todo.status !== status.COMPLETED);
+  }
+  updateDisplayTodosAndSetLocalStorage();
 });
 
 allTodoCardsContainer.addEventListener("click", function (e) {

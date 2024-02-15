@@ -12,6 +12,7 @@ $red_color: #fe5b4f;
 $font_railway: "Raleway", sans-serif;
 $font_protest: "Protest Revolution", sans-serif;
 $font_firesans: "Fira Sans", sans-serif;
+
 * {
   margin: 0;
   padding: 0;
@@ -20,29 +21,54 @@ $font_firesans: "Fira Sans", sans-serif;
   font-weight: 400;
   transition: all 0.3s ease;
 }
+
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
 nav {
-  height: 3.5rem;
+  height: 8vh;
   background: #000;
+
   .navbar-brand {
     font-family: $font_protest;
   }
+
+  .nav-link-todos {
+    color: $black_color !important;
+
+    &:hover,
+    &:active {
+      color: $violet_color !important;
+    }
+
+    &:active {
+      transform: scale(1.05);
+    }
+  }
 }
+
 .btn-create-todo,
 .btn-open-modal {
   background: $purple_color;
   color: #fff;
   border: none;
+
   &:hover,
   &:active {
     background: $violet_color;
     color: #fff;
   }
 }
+
 .add-todo-section {
   .modal {
+
     input,
     select {
       border: 1px solid $black_color;
+
       &:focus {
         box-shadow: none;
         border: 1px solid $orange_color;
@@ -51,48 +77,59 @@ nav {
     }
   }
 }
+
 .buttons-container {
-  height: 4.5rem;
+  height: 15vh;
   background: #fff;
   flex-wrap: nowrap;
   width: 100%;
   overflow-x: scroll;
+
   &::-webkit-scrollbar {
     display: none;
   }
+
   button {
     min-width: fit-content;
     background: #fff;
     border: 1px solid $black_color;
     color: $black_color;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
+
     &.btn-active {
       background: $black_color;
       color: #fff;
+
       span {
         color: $black_color;
       }
     }
+
     &:hover {
       border: 1px solid $black_color;
-      // background: $some_color;
-      transform: scale(0.9);
+      transform: skew(-10deg);
     }
+
     &.btn-all span {
       background: $grey_color;
     }
+
     &.btn-complete span {
       background: $grey_color;
     }
+
     &.btn-review span {
       background: $pink_color;
     }
+
     &.btn-todo span {
       background: $violet_color;
     }
+
     &.btn-hold span {
       background: $orange_color;
     }
+
     &.btn-clear span {
       background: $red_color;
     }
@@ -101,48 +138,63 @@ nav {
 
 /// todo card section
 .todo-cards-section {
+  height: 77vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+
   .all-todo-cards-container {
     .todo-card-container {
       aspect-ratio: 9/4;
       max-width: 23rem;
+
       .todo-card {
         border: 1px solid $black_color;
+
         .todo-card-title {
           min-height: 1rem;
           font-size: 1rem;
           white-space: nowrap;
           overflow: auto;
+
           &::-webkit-scrollbar {
             display: none;
           }
         }
+
         .card-prioriy-status-container {
-          > span {
+          >span {
             font-size: 0.7rem;
             color: #000000;
 
             &.card-priority-high {
               background: $red_color;
             }
+
             &.card-priority-medium {
               background: $orange_color;
             }
+
             &.card-priority-low {
               background: $grey_color;
             }
+
             &.card-status-todo {
               background: $violet_color;
             }
+
             &.card-status-hold {
               background: $orange_color;
             }
+
             &.card-status-review {
               background: $purple_color;
             }
+
             &.card-status-completed {
               background: $green_color;
             }
           }
+
           .buttons-container {
             button {
               font-size: 0.65rem;
@@ -150,30 +202,38 @@ nav {
               color: #fff;
               height: 70%;
               aspect-ratio: 1/1;
+
               &:hover {
                 cursor: pointer;
                 transform: scale(1.1);
               }
+
               &.btn-change-status-todo {
                 background: $violet_color;
               }
+
               &.btn-change-status-hold {
                 background: $orange_color;
               }
+
               &.btn-change-status-completed {
                 background: $green_color;
               }
+
               &.btn-change-status-review {
                 background: $purple_color;
               }
             }
           }
         }
+
         .card-date-container {
           font-size: 0.9rem;
+
           .calender-date {
             height: 100%;
             min-width: fit-content;
+
             .calender-container {
               height: 100%;
               aspect-ratio: 1/1;
@@ -182,13 +242,16 @@ nav {
               background-position: center;
               background-size: 70%;
             }
+
             .card-date {
               min-width: fit-content;
             }
           }
+
           .card-buttons-container {
             height: 100%;
             min-width: fit-content;
+
             button {
               height: 100%;
               aspect-ratio: 1/1;
@@ -196,9 +259,11 @@ nav {
               background-repeat: no-repeat;
               background-position: center;
               background-size: 80%;
+
               &.btn-update {
                 background-image: url(../images/update.svg);
               }
+
               &.btn-delete {
                 background-size: 70%;
                 background-image: url(../images/delete.svg);
@@ -212,18 +277,21 @@ nav {
     @media (min-width: 768px) {
       .todo-card-container {
         max-width: unset;
+
         .todo-card {
           .todo-card-title {
             font-size: 1.1rem;
           }
+
           .card-prioriy-status-container {
-            > span {
+            >span {
               font-size: 0.8rem;
             }
           }
         }
       }
     }
+
     @media (min-width: 992px) {
       .todo-card-container {
         aspect-ratio: 2/1;
