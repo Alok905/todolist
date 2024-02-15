@@ -26,11 +26,11 @@ export function createCard(
       class="card-prioriy-status-container d-flex justify-content-between"
     >
       <span
-        class="${priorityClass()} d-flex align-items-center justify-content-center p-1 px-3 border-0 rounded-5"
+        class="${priorityClass()} d-flex align-items-center justify-content-center p-1 px-2 px-sm-3 px-lg-2 border-0 rounded-5"
         >${capitalizeString(taskPriority)}</span
       >
       <span
-        class="${statusClass()} ms-2 d-flex align-items-center justify-content-center p-1 px-3 border-0 rounded-5"
+        class="${statusClass()} ms-2 d-flex align-items-center justify-content-center p-1 px-2 px-sm-3 px-lg-2 border-0 rounded-5"
         >${capitalizeString(taskStatus)}</span
       >
       <div
@@ -70,7 +70,7 @@ export function createCard(
       <div
         class="card-buttons-container flex-grow-1 d-flex justify-content-end gap-2"
       >
-        <button class="btn-update btn-update-${taskId} border-0" data-id="${taskId}"></button>
+        <button class="btn-update btn-update-${taskId} border-0" data-id="${taskId}" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
         <button class="btn-delete btn-delete-${taskId} border-0" data-id="${taskId}"></button>
       </div>
     </div>
